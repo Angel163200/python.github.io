@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form enctype="multipart/form-data" method="post" action="{%url 'update' %}">
+            {%csrf_token%}
+            <table>
+                <tr>
+                    <td>Name: </td>
+                    <td><input type="text" name="name" value="{{user.name}}"></td>
+                </tr>
+                <tr>
+                    <td>Dob: </td>
+                    <td><input type="text" name="dob" value={{user.dob|date:'d-m-Y'}} readonly></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td><input type="email" name="email" value="{{user.email}}"></td>
+                </tr>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="uname" value="{{user.loginid.username}}" readonly></td>
+                </tr>
+
+                <tr>
+                    <td>Profile Pic: </td>
+                    <td><img src="/uploads/{{user.profilepic}}" width="200" height="200"></td>
+                    <td><input type="file" name="pp" ></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Update data">
+                    </td>
+                </tr>
+                <tr>
+                </tr>
+            </table>
+        </form>
+</body>
+</html>

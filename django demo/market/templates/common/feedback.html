@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+{% load static %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>feedback</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'dash/vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'dash/vendors/base/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'dash/css/style.css' %}">
+  <!-- endinject -->
+</head>
+
+<body class="content-wrapper">
+
+<div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h3>Enter Your FeedBack</h3></br>
+   
+                  <form class="forms-sample" method="post" action="">
+                    {% csrf_token %}
+				  <div class="row">
+                      <div class="col-md-8">
+
+                    <div class="form-group">
+                      <textarea class="form-control" rows="4" placeholder="Type here...... " name="feedback" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit Feedback</button>
+                      </div></div>
+                  </form>
+                  </br>
+                  <a href="a.html" style="text-decoration:none;color:white"><button class="btn btn-primary mr-2">Cancel</button></a>
+
+                </div></div></div></div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{% static 'dash/vendors/base/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="{% static 'dash/js/off-canvas.js' %}"></script>
+  <script src="{% static 'dash/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'dash/js/template.js' %}"></script>
+  <script src="{% static 'dash/js/todolist.js' %}"></script>
+  <!-- endinject -->
+</body>
+
+</html>

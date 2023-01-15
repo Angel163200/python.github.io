@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Registration</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'dash/vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'dash/vendors/base/vendor.bundle.base.css' %}">
+  <link rel="stylesheet" href="{% static 'dash/css/style.css' %}">
+
+  <script type="text/javascript" language="javascript">
+function getsid(str)
+{
+
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("rose").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","{% url 'checkusername' %}?id="+str,true);
+xmlhttp.send(null);
+}
+
+function getph(str)
+{
+
+if (window.XMLHttpRequest)
+  {
+  xmlhttp=new XMLHttpRequest();
+  }
+
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("ph").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","{% url 'checkph' %}?id="+str,true);
+xmlhttp.send(null);
+}
+</script>
+  <!-- endinject -->
+</head>
+
+<body class="content-wrapper">
+
+<div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h3>Enter Details</h3></br>
+                  <strong><p style="color:red">**This page is for registering both customer and shop please note that customer should register with their name itself </br>
+                    The advantages of this website is only provided to the people who lived in 7km redii of Kuttikkanm</p></strong></br>
+                  <form class="forms-sample" enctype="multipart/form-data" method="POST" action="{% url 'register' %}">
+                      {% csrf_token %}
+				  <div class="row">
+                      <div class="col-md-8">
+                    <div class="form-group">
+                      <label>Name/StoreName</label>
+                      <input type="text" class="form-control" name="name" placeholder="Name/StoreName" required>
+                    </div>
+
+					<div class="form-group">
+                      <label>Address</label>
+                      <input type="text" class="form-control"  name="address" placeholder="Address" required>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Email address</label>
+                      <input type="email" class="form-control"  name="email" placeholder="Email" required>
+                    </div>
+
+					<div class="row">
+                      <div class="col-md-6">
+					  <div class="form-group">
+                      <label>Mobile Number</label>
+                      <input type="text" class="form-control" name="phone" placeholder="Moblile number" required onchange="getph(this.value)">
+                        <div id="ph" style="color:red;"></div>
+                    </div>
+
+                    <div class="form-group">
+                      <label>Insert profile pic:</label>
+                      <input type="file" name="pp">
+                    </div>
+
+                     <div class="form-group">
+                      <label >User Name</label>
+                      <input type="text" class="form-control" name="uname" placeholder="User Nmae" required onchange="getsid(this.value)">
+                       <div id="rose"style="color:red;"></div>
+                    </div>
+
+                    <div class="form-group">
+                      <label >Password</label>
+                      <input type="password" class="form-control" name="psw" placeholder="Password" required>
+                    </div>
+
+					<select type="text"  name="role" required></td></tr>
+					<option value="1">Seller</option>
+					<option value="2">Customer</option></select></br></br>
+					</div>
+                    </div>
+
+                    <div class="form-check form-check-flat form-check-primary">
+                      <label class="form-check-label">
+                        <input type="checkbox" class="form-check-input" required>
+                        i accept terms and coditions
+                      </label>
+                    </div></br>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                      </div></div>
+                  </form>
+                  </br>
+                  <a href="" style="text-decoration:none;color:white"><button class="btn btn-primary mr-2">Cancel</button></a>
+                </div></div></div></div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{% static 'dash/vendors/base/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="{% static 'dash/js/off-canvas.js' %}"></script>
+  <script src="{% static 'dash/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'dash/js/template.js' %}"></script>
+  <script src="{% static 'dash/js/todolist.js' %}"></script>
+  <!-- endinject -->
+</body>
+
+</html>

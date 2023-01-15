@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Details</title>
+	<style type="text/css">
+		table,th,td{
+			border: 1px solid black;
+			text-align: center;
+		}
+		table{
+			width: 100%
+			border-collapse: collapse;
+		}
+	</style>
+</head>
+<body>
+<form action="{% url 'resultpass' %}">
+<table style="width: 40%">
+	<tr><th colspan="3">Mark Details</th></tr>
+	<tr><th>Name</th><td colspan="2"><input type="text" name="t1"></td></tr>
+	<tr><th>Roll No</th><td colspan="2"><input type="text" name="t2"></td></tr>
+	<tr><th>Physic</th><td colspan="2"><input type="text" name="t3"></td></tr>
+	<tr><th>Chemistry</th><td colspan="2"><input type="text" name="t4"></td></tr>
+	<tr><th>Biology</th><td colspan="2"><input type="text" name="t5"></td></tr>
+	<tr><td colspan="3"><input type="submit" name="s1" value='add'></td></tr>
+</table></form>
+</body>
+</html>

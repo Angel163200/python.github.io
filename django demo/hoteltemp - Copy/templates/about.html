@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Hiroto Template">
+    <meta name="keywords" content="Hiroto, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hiroto | About us</title>
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="offcanvas__logo">
+            <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+        <div class="offcanvas__btn__widget">
+            <a href="#">Book Now <span class="arrow_right"></span></a>
+        </div>
+        <div class="offcanvas__widget">
+            <ul>
+                <li><span class="icon_pin_alt"></span> Kochi, Ernakulam India</li>
+                <li><span class="icon_phone"></span>  9985678804</li>
+            </ul>
+        </div>
+        <div class="offcanvas__language">
+            <img src="{% static 'img/lan.png' %}" alt="">
+            <span>English</span>
+        </div>
+        <div class="offcanvas__auth">
+            <ul>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'registration' %}">Register</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Offcanvas Menu End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul class="header__top__widget">
+                            <li><span class="icon_pin_alt"></span> Kochi, Ernakulam India</li>
+                            <li><span class="icon_phone"></span> 9985678804</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="header__top__right">
+                            <div class="header__top__auth">
+                                {%if request.session.userid%}
+                                {{request.session.name}}
+                                {%else%}
+                                <ul>
+                                    <li><a href="{% url 'login' %}">Login</a></li>
+                                    <li><a href="{% url 'registration' %}">Register</a></li>
+                                </ul>
+                            </div>
+                                {%endif%}
+                                 {%if request.session.userid%}
+                                <div class="header__top__language">
+                                <span class="fa fa-user"> {{request.session.username}}</span>
+                                <ul class="dropdown">
+                                    <li><a href="{% url 'update_profile' %}">View Profile</a></li>
+                                    <li><a href="{% url 'change_psw' %}">Change Password</a></li>
+                                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                                </ul>
+                            </div>
+                            </div>
+                                {%endif%}
+                            <div class="header__top__language">
+                                <img src="{% static 'img/lan.png' %}" alt="">
+                                <span>English</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header__nav__option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="header__logo">
+                            <a href="{% url 'index' %}"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="header__nav">
+                            <nav class="header__menu">
+                                <ul class="menu__class">
+                                    <li><a href="{% url 'index' %}">Home</a></li>
+                                    <li class="active"><a href="{% url 'about' %}">About Us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open">
+                    <span class="fa fa-bars"></span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    <!-- Breadcrumb Begin -->
+    <div class="breadcrumb-option set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text">
+                        <h1>About Us</h1>
+                        <div class="breadcrumb__links">
+                            <a href="{% url 'index' %}">Home</a>
+                            <span>About Us</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+    <!-- About Section Begin -->
+    <section class="about spad">
+        <div class="container">
+            <div class="about__content">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="section-title">
+                            <h5>Our Specialization</h5>
+                            <h2>Welcome Hiroto</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="about__text">
+                            <p>Hotel Hiroto, a change to your everyday Life</p>
+                            <p>Hotel Hiroto is a five-star luxurious hotel which provide five star quality rooms with
+                            an evergreen environment, staying in Hotel Hiroto heels your stress and free up your mind
+                            "Come, Stay and Enjoy"</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{% static 'img/services/services-1.png' %}" alt="">
+                        <h4>Free Wi-Fi</h4>
+                        <p>The massive investment in a hotel or resort requires constant reviews and control in order to
+                            make it a successful investment.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{% static 'img/services/services-2.png' %}" alt="">
+                        <h4>Premium Pool</h4>
+                        <p>Choose from 4 unique ready made concepts, let us help you create the concept perfect for you
+                            or let HCA.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{% static 'img/services/services-3.png' %}" alt="">
+                        <h4>Coffee Maker</h4>
+                        <p>HCA's Owner's Representation is taking care of just these important factors, may it be
+                            through regular site visits and spot checks.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{% static 'img/services/services-4.png' %}" alt="">
+                        <h4>Bar Wine</h4>
+                        <p>For properties with third party management companies, HCA Consultants will as well administer
+                            the terms and conditions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{% static 'img/services/services-5.png' %}" alt="">
+                        <h4>TV HD</h4>
+                        <p>We provide a critical analysis of a hotel's marketing strategy, bench-marking it against
+                            industry and competitive practices.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    <div class="services__item">
+                        <img src="{% static 'img/services/services-6.png' %}" alt="">
+                        <h4>Restaurant</h4>
+                        <p>A hotel and restaurant investment deserves careful and market oriented financial planning and
+                            projections.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+
+    <!-- Chooseus Section Begin -->
+    <div class="chooseus spad set-bg" data-setbg="{% static 'img/chooseus-bg.jpg' %}">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <div class="chooseus__text">
+                        <div class="section-title">
+                            <h5>WHY CHOOSE US</h5>
+                            <h2>Contact us now to get the latest deals and for the next booking</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Chooseus Section End -->
+
+    <!-- History Section Begin -->
+    <section class="history spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title history-title">
+                        <h2>Explore Our Hotel</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="history__content">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5">
+                        <div class="history__item left__item">
+                            <div class="history__date"></div>
+                            <span>1</span>
+                            <h4>Start Up Building Hotel</h4>
+                            <img src="{% static 'img/history/history-1.jpg' %}" alt="">
+                            <p>Provide five-star high quality rooms worth to your amount</p>
+                        </div>
+                        <div class="history__item left__item mb-0">
+                            <div class="history__date"></div>
+                            <span>3</span>
+                            <h4>Building Pool In The Beach</h4>
+                            <img src="{% static 'img/history/history-3.jpg' %}" alt="">
+                            <p>Clean surroundings</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 offset-lg-2 col-md-5 offset-md-2">
+                        <div class="history__item right__first__item">
+                            <div class="history__date"></div>
+                            <span>2</span>
+                            <h4>Best Hotel Award Of The Year</h4>
+                            <img src="{% static 'img/history/history-2.jpg' %}" alt="">
+                            <p>Healthy food</p>
+                        </div>
+                        <div class="history__item mb-0">
+                            <div class="history__date"></div>
+                            <span>4</span>
+                            <h4>Open New Hotel In New York</h4>
+                            <img src="{% static 'img/history/history-4.jpg' %}" alt="">
+                            <p>Coming soon..</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- History Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer set-bg" data-setbg="{% static 'img/footer-bg.jpg' %}">
+
+        <div class="container">
+            <div class="footer__content">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="{% static 'img/logo.png' %}" alt=""></a>
+                            </div>
+                            <h4>9985678804</h4>
+                            <ul>
+                                <li>Kochi, Kerala, India</li>
+                                <li>bookmyhiroto@gmail.com</li>
+                            </ul>
+                            <div class="footer__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg- col-md-5 offset-md-1 col-sm-6">
+                        <div class="footer__widget">
+                            <h4>Quick Link</h4>
+                            <ul>
+                                <li><a href="{% url 'index' %}">Home</a></li>
+                                <li><a href="{% url 'about' %}">About Us</a></li>
+                                <li><a href="{% url 'rooms' %}">Rooms</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="footer__copyright">
+                <div class="row">
+                    <div class="col-lg-7 col-md-7">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <div class="footer__copyright__text">
+                            <p>Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved | This site is made by <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Hotel Hiroto</a></p>
+                        </div>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

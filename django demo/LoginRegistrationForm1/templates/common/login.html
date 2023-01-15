@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form action="{%url 'login' %}" method="POST">
+            <label style="color:red">{{error}}</label>
+            {%csrf_token%}
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="uname"></td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="passwd"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><a href="{%url 'register'%}">New User??</a></td>
+                </tr>
+            </table>
+        </form>
+</body>
+</html>

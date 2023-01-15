@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Edit Rooms</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'admin/dash/vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/dash/vendors/base/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'admin/dash/css/style.css' %}">
+  <!-- endinject -->
+</head>
+
+<body class="content-wrapper">
+
+<div class="row">
+            <div class="col-md-10 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h3>Edit Rooms</h3>
+                    </br>
+
+                 <form class="forms-sample" enctype="multipart/form-data" action="" method="post">
+                    {% csrf_token %}
+				  <div class="row">
+                      <div class="col-md-8">
+
+                    <div class="form-group">
+                      <img src="/uploads/{{rooms.r_image}}" width="100" height="100">
+                      <input type="file" name="image">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Room No</label>
+                      <input type="number" class="form-control" value="{{rooms.room_no}}" name="roomno" placeholder="Roomno">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Floor No</label>
+                      <input type="number" class="form-control" value="{{rooms.floor_no}}" name="floorno" placeholder="Floorno">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Type</label>
+                      <input type="text" class="form-control" value="{{rooms.type}}" name="type" placeholder="Type">
+                    </div>
+
+                     <div class="form-group">
+                      <label>Size</label>
+                      <input type="number" class="form-control" value="{{rooms.size}}" name="size" placeholder="Size">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Capacity</label>
+                      <input type="number" class="form-control" value="{{rooms.capacity}}" name="capacity" placeholder="Capacity">
+                    </div>
+
+                    <div class="form-group">
+                      <label>View</label>
+                      <input type="text" class="form-control" value="{{rooms.view}}" name="view" placeholder="View">
+                    </div>
+
+                     <div class="form-group">
+                      <label>Location</label>
+                      <input type="text" class="form-control" value="{{rooms.location}}" name="location" placeholder="Location">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Price</label>
+                      <input type="number" class="form-control" value="{{rooms.price}}" name="price" placeholder="Price">
+                    </div>
+                    </br>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    </div></div>
+                  </form>   <a href="{% url 'delete_account' %}" style="text-decoration:none;color:white"><button class="btn btn-primary mr-2">Delete your Account</button></a>
+
+              </div></div></div></div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{% static 'admin/dash/vendors/base/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="{% static 'admin/dash/js/off-canvas.js' %}"></script>
+  <script src="{% static 'admin/dash/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'admin/dash/js/template.js' %}"></script>
+  <script src="{% static 'admin/dash/js/todolist.js' %}"></script>
+  <!-- endinject -->
+</body>
+
+</html>

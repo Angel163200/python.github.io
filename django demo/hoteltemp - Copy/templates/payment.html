@@ -1,0 +1,131 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+{% load static %}
+<title>Payment</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Hotel Checkout Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="{% static 'payment/css/style.css' %}" rel="stylesheet" type="text/css" media="all" />
+<script src="{% static 'payment/js/jquery.min.js' %}"></script>
+<link href='//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- script for close -->
+<script>
+$(document).ready(function(c) {
+	$('.alert-close').on('click', function(c){
+		$('.vlcone').fadeOut('slow', function(c){
+			$('.vlcone').remove();
+		});
+	});	  
+});
+</script>
+<!-- //script for close -->
+</head>
+<body>
+<div class="main">
+	<h1>Payment Page</h1>
+	<p>
+				{%if s == 1%}
+					<div class="alert alert-success" id="success" style="display:none;" align="center">
+	<h2>Booking Successfull. Thank you..</h2>
+					</div>
+					<script type="text/javascript">
+					   document.getElementById("success").style.display='block';
+					   setTimeout(function () {
+					   window.location.href="{%url 'index'%}";
+					   },3000)
+					</script>
+    			{%endif%}
+					</p>
+	<div class="hotel-right  vlcone">
+		<div class="hotel-form">
+
+			<h3>Receipt Form</h3>
+			<ul class="list_ins1">
+						<li>Room No.</li>
+						<!--<li>Check-in</li>
+						<li>Check-out</li>-->
+						<li>Room Charges</li>
+						<li>Services Charges</li>
+						<li>No:of days</li>
+						<li>Total</li>
+			</ul>
+			<ul class="list_ins2">
+						<li>: {{ book.roomid.room_no}}</li>
+						<!--<li>: {{ book.check_in}}</li>
+						<li>: {{ book.check_out}}</li>-->
+						<li>: {{ book.roomid.price}}</li>
+						<li>: Rs. 300</li>
+						<li>: {{ n }}</li>
+						<li>: Rs.{{ total }}/-</li>
+			</ul>
+			<div class="clear"></div>
+		</div>
+		<div class="pay-form">
+			<form method="post" action="{% url 'payment' %}">
+				{% csrf_token %}
+				<h3>Payment Information</h3>
+				<h5>Name On Credit Card</h5>
+				<input type="text" value="card owner name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'card owner name';}"
+					   required="">
+
+				<h5>Credit Card Number</h5>
+				<input class="card_logo" type="text" value="2525 2525 2525 2525" onfocus="this.value = '';" onblur="if (this.value == '')
+				{this.value = '2525 2525 2525 2525';}" required pattern="[0-9]{16}">
+
+				<h5>Expires On</h5>
+				<select id="country" onchange="change_country(this.value)" class="frm-field required">
+					<option value="null">January</option>
+					<option value="null">February</option>         
+					<option value="AX">March</option>
+					<option value="AX">April</option>
+					<option value="AX">May</option>
+					<option value="AX">June</option>
+					<option value="AX">July</option>
+					<option value="AX">August</option>
+					<option value="AX">September</option>
+					<option value="AX">October</option>
+					<option value="AX">November</option>
+					<option value="AX">December</option>
+				</select>
+				<ul>
+					<li>
+						<input type="number" class="text_box" type="text" value="2020" min="1" />
+					</li>
+				</ul>
+				<div class="clear"></div>
+				<h5>CVC</h5>
+				<input type="text" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required pattern="[0-9]{3}">
+
+				<input type="submit" value="BOOK SECURELY">
+				<input type="int" name="bid" value="{{ book.id }}" style="display:none">
+			</form>
+			<p><span></span>Your credit card information is encrypted.</p>
+		</div>
+	</div>
+	<div class="hotel-left">
+		<div class="hotel-text">
+			<h2>HOTEL HIROTO</h2>
+			<p>Hotel Hiroto is a five-star luxurious hotel which provide five star quality rooms with
+                            an evergreen environment, staying in Hotel Hiroto heels your stress and free up your mind
+                            "Come, Stay and Enjoy"</p>
+			<p></p>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<p class="footer">&copy; Hotel Hiroto | All Rights Reserved </p>
+</div>
+</body>
+</html>

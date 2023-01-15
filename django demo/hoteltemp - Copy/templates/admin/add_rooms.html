@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Add Rooms</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="{% static 'admin/dash/vendors/ti-icons/css/themify-icons.css' %}">
+  <link rel="stylesheet" href="{% static 'admin/dash/vendors/base/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'admin/dash/css/style.css' %}">
+  <!-- endinject -->
+</head>
+
+<body class="content-wrapper">
+
+<div class="row">
+            <div class="col-md-7 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h3>View/Edit Room Details</h3></br>
+
+                  <form class="forms-sample" enctype="multipart/form-data" action="{% url 'add_rooms' %}" method="post">
+                    {% csrf_token %}
+				  <div class="row">
+                      <div class="col-md-8">
+
+                    <div class="form-group">
+                      <label>Select Image</label>
+                      <input type="file" name="image">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Room No</label>
+                      <input type="number" class="form-control" value="{{user.room_no}}" name="roomno" placeholder="Roomno">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Floor No</label>
+                      <input type="number" class="form-control" value="{{user.floor_no}}" name="floorno" placeholder="Floorno">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Type</label>
+                      <input type="text" class="form-control" value="{{user.type}}" name="type" placeholder="Type">
+                    </div>
+
+                     <div class="form-group">
+                      <label>Size</label>
+                      <input type="number" class="form-control" value="{{user.size}}" name="size" placeholder="Size">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Capacity</label>
+                      <input type="number" class="form-control" value="{{user.capacity}}" name="capacity" placeholder="Capacity">
+                    </div>
+
+                    <div class="form-group">
+                      <label>View</label>
+                      <input type="text" class="form-control" value="{{user.view}}" name="view" placeholder="View">
+                    </div>
+
+                     <div class="form-group">
+                      <label>Location</label>
+                      <input type="text" class="form-control" value="{{user.location}}" name="location" placeholder="Location">
+                    </div>
+
+                    <div class="form-group">
+                      <label>Price</label>
+                      <input type="number" class="form-control" value="{{user.price}}" name="price" placeholder="Price">
+                    </div>
+                    </br>
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    </div></div>
+                  </form>
+                  </br>
+                  <a href="{% url 'admin' %}" style="text-decoration:none;color:white"><button class="btn btn-primary mr-2">Cancel</button></a>
+
+              </div></div></div></div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="{% static 'admin/dash/vendors/base/vendor.bundle.base.js' %}"></script>
+  <!-- endinject -->
+  <!-- inject:js -->
+  <script src="{% static 'admin/dash/js/off-canvas.js' %}"></script>
+  <script src="{% static 'admin/dash/js/hoverable-collapse.js' %}"></script>
+  <script src="{% static 'admin/dash/js/template.js' %}"></script>
+  <script src="{% static 'admin/dash/js/todolist.js' %}"></script>
+  <!-- endinject -->
+</body>
+
+</html>

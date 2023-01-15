@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <form enctype="multipart/form-data" method="post" action="{%url 'register' %}">
+            {%csrf_token%}
+            <table>
+                <tr>
+                    <td>Name: </td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td>Dob: </td>
+                    <td><input type="date" name="dob"></td>
+                </tr>
+                <tr>
+                    <td>Email: </td>
+                    <td><input type="email" name="email"></td>
+                </tr>
+
+                <tr>
+                    <td>Course </td>
+                    <td><select name="ddlcourse">
+                        {%for c in c %}
+                        <option value="{{c.id}}">{{c.coursename}}</option>
+
+                        {%endfor%}
+                    </select></td>
+                </tr>
+
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="uname"></td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="passwd"></td>
+                </tr>
+                <tr>
+                    <td>Profile Pic: </td>
+                    <td><input type="file" name="pp"></td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit">
+                    </td>
+                </tr>
+                <tr>
+
+                    <td colspan="2"><a href="">I have a login</a></td>
+                </tr>
+            </table>
+        </form>
+</body>
+</html>
